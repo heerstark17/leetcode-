@@ -1,0 +1,19 @@
+bool isanag(string &s1,string &s2){
+    if(s1.length()!=s2.length()){
+        return false;
+    }
+    unordered_map<char,int>mpp;
+    for(char ch:s1){
+        mpp[ch]++;
+    }
+    for(char ch:s2){
+        mpp[ch]--;
+    }
+    for(auto&pair:mpp){
+        if(pair.second!=0){
+            return false;
+        }
+    }
+    return true;
+
+}//if all the frequencies cancel out each other for every character then that will mean that they contain the same characters same times so the strings are anagrams otherwise not
