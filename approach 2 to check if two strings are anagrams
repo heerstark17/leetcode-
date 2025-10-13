@@ -1,0 +1,12 @@
+bool isanag(string &s1,string &s2){
+    string s3=s1;
+    string s4=s2;
+    if(s1.length()!=s2.length()){
+        return false;
+    }
+   sort(s3.begin(),s3.end());
+    sort(s4.begin(),s4.end());
+
+    return s3==s4;
+
+}
