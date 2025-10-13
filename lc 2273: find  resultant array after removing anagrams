@@ -1,0 +1,36 @@
+class Solution {
+public:
+bool isanag(string &s1,string &s2){
+    if(s1.length()!=s2.length()){
+        return false;
+    }
+    unordered_map<char,int>mpp;
+    for(char ch:s1){
+        mpp[ch]++;
+    }
+    for(char ch:s2){
+        mpp[ch]--;
+    }
+    for(auto&pair:mpp){
+        if(pair.second!=0){
+            return false;
+        }
+    }
+    return true;
+
+}
+    vector<string> removeAnagrams(vector<string>& words) {
+    vector<string>s;    
+    s.push_back(words[0]);
+    for(int i=1;i<words.size();i++){
+        if (isanag(words[i],s.back())==true){
+           continue;
+        }
+        else{
+            s.push_back(words[i]);
+        }
+    }
+       return s; 
+        
+    }
+};
