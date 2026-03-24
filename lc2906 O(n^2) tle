@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<vector<int>> constructProductMatrix(vector<vector<int>>& grid) {
+      vector<vector<int>> p(grid.size(), vector<int>(grid[0].size(), 0));
+       vector<int>flat;
+        for(int i=0;i<grid.size();i++){
+            for(int j=0;j<grid[0].size();j++){
+             flat.push_back(grid[i][j]);
+            }
+        }
+       vector<int>pstore;
+       for(int i=0;i<flat.size();i++){
+        long long prod=1;
+        for(int j=0;j<flat.size();j++){
+            if(j==i){
+                continue;
+            }
+            prod=(prod*flat[j])%12345;
+        }
+        pstore.push_back(prod);
+       }
+       int idx=0;
+        for(int i=0;i<p.size();i++){
+            for(int j=0;j<p[0].size();j++){
+           p[i][j]=pstore[idx++];
+             }}
+             return p;
+        
+    }
+};
