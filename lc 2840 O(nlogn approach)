@@ -1,0 +1,27 @@
+class Solution {
+public:
+    bool checkStrings(string s1, string s2) {
+        vector<char>v1odd;
+        vector<char>v1eve;
+        vector<char>v2odd;
+        vector<char>v2eve;
+        for(int i=0;i<s1.size();i++){
+            if(i%2==0){
+                v1eve.push_back(s1[i]);
+                v2eve.push_back(s2[i]);
+            }
+            else{
+                 v1odd.push_back(s1[i]);
+                v2odd.push_back(s2[i]);
+            }
+        }
+        sort(v1odd.begin(),v1odd.end());
+         sort(v1eve.begin(),v1eve.end());
+           sort(v2odd.begin(),v2odd.end());
+         sort(v2eve.begin(),v2eve.end());
+if(v1odd==v2odd&&v1eve==v2eve){
+    return true;
+}
+return false;
+    }
+};
