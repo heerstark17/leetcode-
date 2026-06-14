@@ -1,0 +1,23 @@
+class Solution {
+public:
+vector<vector<int>>solve(int idx,vector<int>&nums,vector<int>&op,vector<vector<int>>&ans){
+    if(idx==nums.size()){ //end pe pahoch gaye hai like input array empty hogyi aisa visualise kar aditya verma ke method me
+    
+        ans.push_back(op);
+        return ans;
+    }
+    op.push_back(nums[idx]);//take, rec tree ke right side gaye
+    solve(idx+1,nums,op,ans);//next element pe jao input array choti hogyi hai aisa visualise karo
+    op.pop_back();//jo element daala tha woh nikaal diya rec tree ke left side gaye
+    solve(idx+1,nums,op,ans);//not take
+   return ans;
+
+}
+    vector<vector<int>> subsets(vector<int>& nums) {
+           vector<int>op;
+           vector<vector<int>>ans;
+           int idx=0;//starting index
+        ans=solve(idx,nums,op,ans);
+        return ans;
+    }
+};
